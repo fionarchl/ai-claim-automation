@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: sqlite
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+
+claimops:
+  ai:
+    mode: ${CLAIMOPS_AI_MODE:test}
+    provider:
+      endpoint: ${CLAIMOPS_AI_PROVIDER_ENDPOINT:https://api.openai.com/v1/chat/completions}
+      api-key: ${CLAIMOPS_AI_PROVIDER_API_KEY:${OPENAI_API_KEY:${GEMINI_API_KEY:}}}
+      model: ${CLAIMOPS_AI_PROVIDER_MODEL:gpt-4o-mini}
